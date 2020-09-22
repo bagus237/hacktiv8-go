@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <H2>Contact Us</H2>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    $(function () {
+$("#contact").on("submit", function (e) {
+    e.preventDefault();
+    var $self = $(this);
+    var payload = JSON.stringify({
+        name: $('[name="name"]').val(),
+        pesan: $('[name="pesan"]').val(),
+    });
+
+    $.ajax({
+        url: "/contact/service",
+        type: "POST",
+        data: payload,
+        contentType: 'application/json',
+    }).then(function (res) {
+      var data = JSON.parse(res)
+    });
+    });
+    });
+</script>
+  <div>
+   <title> {{ .title }} </title>
+  <form id="contact" method="POST" >     
+      <label>Nama:</label><br>
+      <input name="name" type="text" required ><br>
+      <label for="pesan">Pesan:</label><br>
+      <input type="text" id="pesan" name="pesan" required><br>
+      <input type="submit" value="submit"/>
+
+      <th>Data</th>
+      <td>{{ .EP }}</td>
+  </form>
+</div>
+</body>
+</html>

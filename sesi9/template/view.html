@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <H2>Form Register</H2>
+<div>
+  <form action="/register" method="POST" action="/" >     
+      <label>Nama:</label><br>
+      <input name="name" type="text" value="" required ><br>
+      <label for="passrwod">Password:</label><br>
+      <input type="password" id="password" name="password" required><br>
+      <label for="vpassrwod">Verifikasi Password:</label><br>
+      <input type="password" id="vpassword" name="vpassword" required><br>
+      <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    <label for="nama">Jenis Kelamin:</label><br>
+    <input type="radio" id="male" name="gender" value="male" checked>
+    <label for="male">Laki-Laki</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Perempuan</label><br>
+      <label>Alamat:</label><br>
+      <textarea type="textarea" name="alamat" rows="7" required></textarea>
+      <br>
+    <label for="agama">Agama:</label><br>
+    <select name="agama" id="agama" required>
+    <option value="islam">Islam</option>
+    <option value="khatolic">Katolic</option>
+    <option value="protestan">Protestan</option>
+    <option value="budha">Budha</option>
+    <option value="hindu">Hindu</option>
+    <option value="Konghucu">Konghucu</option>
+  </select>
+      <input type="submit" value="submit" onSubmit="validasi()"/>
+  </form>
+</div>
+</body>
+<script type="text/javascript">
+  var password = document.getElementById("password")
+  , confirm_password = document.getElementById("vpassword");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
+</html>

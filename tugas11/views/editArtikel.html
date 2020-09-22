@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Blog</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css" />
+</head>
+<body>
+	<div class="wrap">
+		<!-- bagian menu		 -->
+		<nav class="menu">
+			<ul>
+				<li>
+					<a href="/home">Dashboard</a>
+				</li>
+				<li>
+					<a href="/aboutLogin">About</a>
+				</li>
+				<li>
+					<a href="/contactLogin">Feedback</a>
+                </li>
+                <li>
+					<a href="/artikel">Articles</a>
+                </li>
+                <li>
+					<a href="/logout">Logout</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- akhir bagian menu -->
+ 
+		<!-- bagian sidebar website -->
+		<!-- bagian sidebar website -->
+		<aside class="sidebar">
+			<div class="widget">
+				<h2>Welcome To Admin Menu</h2>
+				<p>Selamat datang di menu admin jangan di rusak ya :)</p>
+			</div>
+		</aside>
+		<!-- akhir bagian sidebar website -->
+ 
+		<!-- bagian konten Blog -->
+		<div class="blog">
+			<div class="conteudo">
+				<div class="post-info">
+				</div>
+                <h2> Edit Article </h2>
+                {{ if . }}
+                    <form method="POST" action="/updateArtikel">
+                        <input type="hidden" name="id" value={{ .ID }} />
+						Nama Artikel:<br> 
+						<input type="text" name="name" value={{ .Name }} autofocus/> <br/>
+						<label>Isi Artikel:</label><br>
+						<textarea name="isi" rows="7" cols="57" >{{ .Isi }}</textarea> 
+						<br>
+						<label>Status:</label>
+						<br> 
+						<select name="status">
+							<option value={{ .Status }}>{{.Status}}</option>
+							<option value="publish">Publish</option>
+							<option value="unpublish">Unpublish</option>
+						  </select> 
+						<br> 
+                        <input type="submit" value="Update"/>
+                      </form>
+                      {{ else }}
+                        <h1> Data Not Found </h1>
+                        {{ end }}
+			</div>
+			</div>
+		</div>
+		<!-- akhir bagian konten Blog -->
+	</div>
+ 
+</body>
+</html>

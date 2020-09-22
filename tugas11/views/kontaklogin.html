@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Blog</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css" />
+	</head>
+<body>
+	<div class="wrap">
+		<!-- bagian menu		 -->
+		<nav class="menu">
+			<ul>
+				<li>
+					<a href="/home">Dashboard</a>
+				</li>
+				<li>
+					<a href="/aboutLogin">About</a>
+				</li>
+				<li>
+					<a href="/contactLogin">Feedback</a>
+                </li>
+                <li>
+					<a href="/artikel">Articles</a>
+                </li>
+                <li>
+					<a href="/logout">logout</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- akhir bagian menu -->
+ 
+		<!-- bagian sidebar website -->
+		<aside class="sidebar">
+			<div class="widget">
+				<h2>Welcome To Admin Menu</h2>
+				<p>Selamat datang di menu admin jangan di rusak ya :)</p>
+			</div>
+		</aside>
+		<!-- akhir bagian sidebar website -->
+ 
+		<!-- bagian konten Blog -->
+		<div class="blog">
+			<div class="conteudo">
+				<div class="post-info">
+				</div>
+				<h2> Pesan Untuk Admin </h2>
+				<form method="POST">
+                    <table border="1">
+                      <tr>
+                        <th>ID</th>
+						<th>Nama</th>
+						<th>Email</th>
+						<th>Pesan</th>
+                        <th>Action</th>
+                      </tr>
+                      {{ if . }}
+                        {{ range . }}
+                        <tr>
+                          <td>{{ .ID }}</td>
+                          <td>{{ .Nama }}</td>
+						  <td>{{ .Email }}</td>
+						  <td>{{ .Pesan }}</td>
+                          <td>
+                            <a href="/deletePesan?id={{.ID}}">Delete</a> 
+                          </td>
+                        </tr>
+                        {{ end }}
+                      {{ end }}
+                    </table>	
+			</form>	
+			</div>
+			</div>
+		</div>
+		<!-- akhir bagian konten Blog -->
+	</div>
+ 
+</body>
+</html>

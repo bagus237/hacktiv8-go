@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Blog</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css" />
+</head>
+<body>
+	<div class="wrap">
+		<!-- bagian menu-->
+		<nav class="menu">
+			<ul>
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li>
+					<a href="/about">About</a>
+				</li>
+				<li>
+					<a href="/contact">Contact Us</a>
+                </li>
+                <li>
+					<a href="/login">Login</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- akhir bagian menu -->
+		<aside class="sidebar">
+			<div class="widget">
+				<h2>Welcome To My Blog</h2>
+				<p>Selamat datang di blog saya, blog ini berisikan cerita,curhatan dan shitposting dari saya. mohon maaf kalo tidak menghibur wong saya bikin ini bukan untuk menghibur anda :v</p>
+			</div>
+		</aside>
+		<!-- akhir bagian sidebar website -->
+ 
+		<!-- bagian konten Blog -->
+		<div class="blog">
+			<div class="conteudo">
+				<h1>Artikel </h1>
+				{{ if . }}
+				{{ range . }}
+				<h2> {{ .Name }}</h2>
+				<hr>
+				<p>
+					{{ .Isi }}
+				</p>
+				{{ end }}
+					  {{ end }}
+								
+			</div>
+			</div>
+			
+		</div>
+		<!-- akhir bagian konten Blog -->
+	</div>
+ 
+</body>
+</html>

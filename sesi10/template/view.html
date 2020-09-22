@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <H2>Form Register</H2>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    $(function () {
+$("#register").on("submit", function (e) {
+    e.preventDefault();
+    var $self = $(this);
+    var payload = JSON.stringify({
+        nama: $('[name="nama"]').val(),
+        password: $('[name="password"]').val(),
+        vpassword: $('[name="vpassword"]').val(),
+        email: $('[name="email"]').val(),
+        gender: $('[name="gender"]').val(),
+        alamat: $('[name="alamat"]').val(),
+        agama: $('[name="agama"]').val()
+    });
+
+    $.ajax({
+        url: "/register",
+        type: "POST",
+        data: payload,
+        contentType: 'application/json',
+    }).then(function (res) {
+      var data = JSON.parse(res)
+                if (data.code !== "00"){
+                    alert("gagal Request")
+                }else{
+                    alert(res)
+                }
+    });
+    });
+    });
+</script>
+  <div>
+  <form id="register" method="POST" >     
+      <label>Nama:</label><br>
+      <input name="nama" type="text" value="" required ><br>
+      <label for="passrwod">Password:</label><br>
+      <input type="password" id="password" name="password" required><br>
+      <label for="vpassrwod">Verifikasi Password:</label><br>
+      <input type="password" id="vpassword" name="vpassword" required><br>
+      <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    <label for="nama">Jenis Kelamin:</label><br>
+    <input type="radio" id="gender" name="gender" value="male">
+    <label for="male">Laki-Laki</label><br>
+    <input type="radio" id="gender" name="gender" value="female">
+    <label for="female">Perempuan</label><br>
+      <label>Alamat:</label><br>
+      <textarea type="textarea" name="alamat" rows="7" required></textarea>
+      <br>
+    <label for="agama">Agama:</label><br>
+    <select name="agama" id="agama" required>
+    <option value="islam">Islam</option>
+    <option value="khatolic">Katolic</option>
+    <option value="protestan">Protestan</option>
+    <option value="budha">Budha</option>
+    <option value="hindu">Hindu</option>
+    <option value="Konghucu">Konghucu</option>
+  </select>
+      <input type="submit" value="submit" />
+  </form>
+</div>
+</body>
+<script type="text/javascript">
+  var password = document.getElementById("password")
+  , confirm_password = document.getElementById("vpassword");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
+</html>

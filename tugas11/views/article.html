@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Blog</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css" />
+	</head>
+<body>
+	<div class="wrap">
+		<!-- bagian menu		 -->
+		<nav class="menu">
+			<ul>
+				<li>
+					<a href="/home">Dashboard</a>
+				</li>
+				<li>
+					<a href="/aboutLogin">About</a>
+				</li>
+				<li>
+					<a href="/contactLogin">Feedback</a>
+                </li>
+                <li>
+					<a href="/artikel">Articles</a>
+                </li>
+                <li>
+					<a href="/logout">logout</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- akhir bagian menu -->
+ 
+		<!-- bagian sidebar website -->
+		<aside class="sidebar">
+			<div class="widget">
+				<h2>Welcome To Admin Menu</h2>
+				<p>Selamat datang di menu admin jangan di rusak ya :)</p>
+			</div>
+		</aside>
+		<!-- akhir bagian sidebar website -->
+ 
+		<!-- bagian konten Blog -->
+		<div class="blog">
+			<div class="conteudo">
+				<div class="post-info">
+				</div>
+				<h2> Menu Artikel </h2>
+				<form method="POST">
+                    <a href="/artikelForm">Add Artikel</a><br/>
+                    <table border="1">
+                      <tr>
+                        <th>Judul</th>
+						<th>Isi Artikel</th>
+						<th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                      {{ if . }}
+                        {{ range . }}
+                        <tr>
+                          <td>{{ .Name }}</td>
+						  <td>{{ .Isi }}</td>
+						  <td>{{ .Status }}</td>
+                          <td>
+                            <a href="/deleteArtikel?id={{.ID}}">Delete</a> |
+                            <a href="/editArtikel?id={{.ID}}">Edit</a>
+                          </td>
+                        </tr>
+                        {{ end }}
+                      {{ end }}
+                    </table>	
+			</form>	
+			</div>
+			</div>
+		</div>
+		<!-- akhir bagian konten Blog -->
+	</div>
+ 
+</body>
+</html>

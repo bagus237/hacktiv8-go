@@ -1,0 +1,37 @@
+func main() {
+	var nama string
+	var data interface{} = "dicky"
+	reflectValue := reflect.ValueOf(data)
+	if reflectValue.Kind() == reflect.String {
+		nama = data.(string)
+	} else {
+		fmt.Println("ada error")
+	}
+	fmt.Println(nama)
+}
+
+func main() {
+	a := 5
+	c := &a
+	fmt.Println(a)
+	fmt.Println(*c)
+	
+	a = 6
+	fmt.Println(a)
+	fmt.Println(*c)
+}
+
+type Profile struct {
+	Nama string `json:"nama"`
+	Kelas string `json:"kela"`
+}
+
+func main() {
+	profile := map[string]string{"nama": "Dicky", "kelas": "golang 10"}
+	jsonB, _ := json.Marshal(profile)
+	fmt.Println(string(jsonB))
+	
+	data := Profile{}
+	json.Unmarshal(jsonB, &data)
+	fmt.Println(data)
+}

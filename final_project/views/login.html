@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Blog</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css" />
+</head>
+<body>
+	<div class="wrap">
+		<!-- bagian menu		 -->
+		<nav class="menu">
+			<ul>
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li>
+					<a href="/about">About</a>
+				</li>
+				<li>
+					<a href="/contact">Contact Us</a>
+                </li>
+                <li>
+					<a href="/login">Login</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- akhir bagian menu -->
+ 
+		<!-- bagian sidebar website -->
+		<aside class="sidebar">
+			<div class="widget">
+				<h2>Welcome To My Blog</h2>
+				<p>Selamat datang di blog saya, blog ini berisikan cerita,curhatan dan shitposting dari saya. mohon maaf kalo tidak menghibur wong saya bikin ini bukan untuk menghibur anda :v</p>
+			</div>
+		</aside>
+		<!-- akhir bagian sidebar website -->
+ 
+		<!-- bagian konten Blog -->
+		<div class="blog">
+			<div class="conteudo">
+				<div class="post-info">
+				</div>
+				<h2> Silahkan Login Untuk Masuk Menu Admin </h2>
+				<form method="POST">
+				<div align="center">
+                    <div>
+						<div>Email</div>
+						
+						<div><input name="username" id="email" type="email"  placeholder="Masukan Email Anda"></div>
+					</div>
+                    <div>
+                        <div>Password</div>
+                        <div><input name="password" id="password" type="password" placeholder="Masukan password Anda"></div>
+                    </div>
+                   
+                    <div>
+                        <div colspan="2"><button type="submit"> Login</button>
+										<button type="reset">Cancel</button></div>
+										<p>Didn't have account? <a href="/register"> Register </a></p>
+                    </div>
+				</div>	
+			</form>	
+			</div>
+			</div>
+		</div>
+		<!-- akhir bagian konten Blog -->
+	</div>
+ 
+</body>
+</html>
